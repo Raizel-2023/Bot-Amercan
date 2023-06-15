@@ -16,7 +16,7 @@ const Levels = require("discord-xp");
 const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter");
 //---------------------------------------------------------------------------
 cmd({
-            pattern: "join",
+            pattern: "انضم",
             desc: "joins group by link",
             category: "owner",
             use: '<group link.>',
@@ -28,30 +28,30 @@ cmd({
                 citel.reply("Link Invalid, Please Send a valid whatsapp Group Link!");
             let result = text.split(" ")[0].split("https://chat.whatsapp.com/")[1];
             await Void.groupAcceptInvite(result)
-                .then((res) => citel.reply("🟩Joined Group"))
-                .catch((err) => citel.reply("Error in Joining Group"));
+                .then((res) => citel.reply("🟩تم دخلت"))
+                .catch((err) => citel.reply("خطأ لم استطع الانضمام"));
 
         }
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "sticker",
-            alias: ["s"],
+            pattern: "ملصق",
+            alias: ["s", "sticker", "ستيكر", "س"],
             desc: "Makes sticker of replied image/video.",
             category: "group",
             use: '<reply to any image/video.>',
         },
         async(Void, citel, text) => {
-            if (!citel.quoted) return citel.reply(`*Mention any Image or video Sir.*`);
+            if (!citel.quoted) return citel.reply(`*منشن صوره او فيديو.*`);
             let mime = citel.quoted.mtype
             pack = Config.packname
             author = Config.author
             if (citel.quoted) {
                 let media = await citel.quoted.download();
-                citel.reply("*Processing Your request*");
+                citel.reply("*جاري صناعة الملصق*");
                 let sticker = new Sticker(media, {
                     pack: pack, // The pack name
-                    author: author, // The author name
+                    author: "𝚁𝙰𝙸𝚉𝙴𝙻 𝙶𝙴𝙾𝚁𝙹𝙴༗", // The author name
                     type: text.includes("--crop" || '-c') ? StickerTypes.CROPPED : StickerTypes.FULL,
                     categories: ["🤩", "🎉"], // The sticker category
                     id: "12345", // The sticker id
@@ -66,7 +66,7 @@ cmd({
                 let media = await quoted.download();
                 let sticker = new Sticker(media, {
                     pack: pack, // The pack name
-                    author: author, // The author name
+                    author: "", // The author name
                     type: StickerTypes.FULL, // The sticker type
                     categories: ["🤩", "🎉"], // The sticker category
                     id: "12345", // The sticker id
@@ -76,22 +76,22 @@ cmd({
                 const stikk = await sticker.toBuffer();
                 return Void.sendMessage(citel.chat, {  sticker: stikk   }, {    quoted: citel });
             } else {
-                citel.reply("*Uhh,Please reply to any image or video*");
+                citel.reply("*منشن الصوره او الفيديو*");
             }
         }
     )
     //---------------------------------------------------------------------------
 cmd({
-        pattern: "support",
+        pattern: "مساعده",
         desc: "Sends official support group link.",
         category: "group",
         filename: __filename,
     },
     async(Void, citel, text) => {
-        citel.reply(`*Check your Pm ${tlang().greet}*`);
+        citel.reply(`*❀╎رسلت لك للــخاص ${tlang().greet}*`);
         await Void.sendMessage(`${citel.sender}`, {
             image: log0,
-            caption: `*Group Name: Secktor-Support*\n*Group Link:* https://chat.whatsapp.com/Bl2F9UTVU4CBfZU6eVnrbC`,
+            caption: `*جروب دعم بوت رايزل*\n*الرابط:* https://chat.whatsapp.com/Fld2cn1jPaT6yAyPa1jjv2`,
         });
 
     }
@@ -110,7 +110,7 @@ cmd({
             const groupAdmins = await getAdmin(Void, citel)
             const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
             if (!isAdmins) return citel.reply('This command is only for Admin.')
- const S=m;function Z(){const F=['126402oKAcRa','date','Removing\x20User\x20because\x20Warn\x20limit\x20exceeded\x0a\x0a*All\x20Warnings.*\x0a','chat','8qachoN','580yXDZAo','groupParticipantsUpdate','114528WgITIL','reply','groupMetadata','│\x20*🔰Time:-*\x20','find','locale','log','196311jXGmuc','quoted','save','*\x0a╭─────────────◆\x0a│\x20*🍁In\x20Group:-*\x20','759700KYdstU','warnedby','pushName','reason','8dUtMfa','2BlOCqD','550MdvhLT','*----Warn----*\x0aUser:\x20@','54828ViphBF','subject','1100323uEahgH','30204512uUuJcj','*There\x20are\x20total\x20','split','│\x20*⚠️Warned\x20by:-*\x20','length','sender','setDefault','group','Asia/KOLKATA','../config','215XZLRSE','HH:mm:ss','warn','remove'];Z=function(){return F;};return Z();}(function(U,w){const c=m,s=U();while(!![]){try{const q=parseInt(c(0x1eb))/0x1*(parseInt(c(0x1f0))/0x2)+parseInt(c(0x1e7))/0x3*(parseInt(c(0x1ef))/0x4)+-parseInt(c(0x200))/0x5*(-parseInt(c(0x204))/0x6)+-parseInt(c(0x1f5))/0x7*(-parseInt(c(0x1dd))/0x8)+-parseInt(c(0x1f3))/0x9*(-parseInt(c(0x1de))/0xa)+parseInt(c(0x1f1))/0xb*(parseInt(c(0x1e0))/0xc)+-parseInt(c(0x1f6))/0xd;if(q===w)break;else s['push'](s['shift']());}catch(B){s['push'](s['shift']());}}}(Z,0x707d4));function m(Y,U){const w=Z();return m=function(s,q){s=s-0x1dd;let B=w[s];return B;},m(Y,U);}if(!citel['quoted'])return citel[S(0x1e1)]('Please\x20quote\x20a\x20user\x20master.');const timesam=moment(moment())['format'](S(0x201));moment['tz'][S(0x1fc)](S(0x1fe))[S(0x1e5)]('id');try{let metadata=await Void[S(0x1e2)](citel[S(0x207)]);await new warndb({'id':citel['quoted'][S(0x1fb)][S(0x1f8)]('@')[0x0]+S(0x202),'reason':text,'group':metadata[S(0x1f4)],'warnedby':citel[S(0x1ed)],'date':timesam})[S(0x1e9)]();let ment=citel[S(0x1e8)][S(0x1fb)];Void['sendMessage'](citel['chat'],{'text':S(0x1f2)+citel[S(0x1e8)][S(0x1fb)][S(0x1f8)]('@')[0x0]+'\x0aWith\x20Reason:\x20'+text+'\x0aWarned\x20by:\x20'+citel[S(0x1ed)],'mentions':[citel[S(0x1e8)][S(0x1fb)]]},{'quoted':citel});let h=await warndb[S(0x1e4)]({'id':citel['quoted'][S(0x1fb)][S(0x1f8)]('@')[0x0]+S(0x202)});const Config=require(S(0x1ff));if(h[S(0x1fa)]>Config['warncount']){teskd=S(0x206);let h=await warndb[S(0x1e4)]({'id':citel[S(0x1e8)][S(0x1fb)][S(0x1f8)]('@')[0x0]+S(0x202)});teskd+=S(0x1f7)+h[S(0x1fa)]+'\x20\x20warnings.*\x0a';for(let i=0x0;i<h[S(0x1fa)];i++){teskd+='*'+(i+0x1)+S(0x1ea)+h[i][S(0x1fd)]+'\x0a',teskd+=S(0x1e3)+h[i][S(0x205)]+'\x0a',teskd+=S(0x1f9)+h[i][S(0x1ec)]+'\x0a',teskd+='│\x20_📍Reason:\x20'+h[i][S(0x1ee)]+'_\x0a╰─────────────◆\x0a\x0a';}citel[S(0x1e1)](teskd),await Void[S(0x1df)](citel['chat'],[citel['quoted'][S(0x1fb)]],S(0x203));}}catch(Y){console[S(0x1e6)](Y);}
+ const S=m;function Z(){const F=['126402oKAcRa','date','Removing\x20User\x20because\x20Warn\x20limit\x20exceeded\x0a\x0a*All\x20Warnings.*\x0a','chat','8qachoN','580yXDZAo','groupParticipantsUpdate','114528WgITIL','reply','groupMetadata','│\x20*🔰Time:-*\x20','find','locale','log','196311jXGmuc','quoted','save','*\x0a╭─────────────◆\x0a│\x20*🍁In\x20Group:-*\x20','759700KYdstU','warnedby','pushName','reason','8dUtMfa','2BlOCqD','550MdvhLT','*----انذار----*\x0aUser:\x20@','54828ViphBF','subject','1100323uEahgH','30204512uUuJcj','*There\x20are\x20total\x20','split','│\x20*⚠️Warned\x20by:-*\x20','length','sender','setDefault','group','Asia/KOLKATA','../config','215XZLRSE','HH:mm:ss','warn','remove'];Z=function(){return F;};return Z();}(function(U,w){const c=m,s=U();while(!![]){try{const q=parseInt(c(0x1eb))/0x1*(parseInt(c(0x1f0))/0x2)+parseInt(c(0x1e7))/0x3*(parseInt(c(0x1ef))/0x4)+-parseInt(c(0x200))/0x5*(-parseInt(c(0x204))/0x6)+-parseInt(c(0x1f5))/0x7*(-parseInt(c(0x1dd))/0x8)+-parseInt(c(0x1f3))/0x9*(-parseInt(c(0x1de))/0xa)+parseInt(c(0x1f1))/0xb*(parseInt(c(0x1e0))/0xc)+-parseInt(c(0x1f6))/0xd;if(q===w)break;else s['push'](s['shift']());}catch(B){s['push'](s['shift']());}}}(Z,0x707d4));function m(Y,U){const w=Z();return m=function(s,q){s=s-0x1dd;let B=w[s];return B;},m(Y,U);}if(!citel['quoted'])return citel[S(0x1e1)]('Please\x20quote\x20a\x20user\x20master.');const timesam=moment(moment())['format'](S(0x201));moment['tz'][S(0x1fc)](S(0x1fe))[S(0x1e5)]('id');try{let metadata=await Void[S(0x1e2)](citel[S(0x207)]);await new warndb({'id':citel['quoted'][S(0x1fb)][S(0x1f8)]('@')[0x0]+S(0x202),'reason':text,'group':metadata[S(0x1f4)],'warnedby':citel[S(0x1ed)],'date':timesam})[S(0x1e9)]();let ment=citel[S(0x1e8)][S(0x1fb)];Void['sendMessage'](citel['chat'],{'text':S(0x1f2)+citel[S(0x1e8)][S(0x1fb)][S(0x1f8)]('@')[0x0]+'\x0aWith\x20Reason:\x20'+text+'\x0aWarned\x20by:\x20'+citel[S(0x1ed)],'mentions':[citel[S(0x1e8)][S(0x1fb)]]},{'quoted':citel});let h=await warndb[S(0x1e4)]({'id':citel['quoted'][S(0x1fb)][S(0x1f8)]('@')[0x0]+S(0x202)});const Config=require(S(0x1ff));if(h[S(0x1fa)]>Config['warncount']){teskd=S(0x206);let h=await warndb[S(0x1e4)]({'id':citel[S(0x1e8)][S(0x1fb)][S(0x1f8)]('@')[0x0]+S(0x202)});teskd+=S(0x1f7)+h[S(0x1fa)]+'\x20\x20warnings.*\x0a';for(let i=0x0;i<h[S(0x1fa)];i++){teskd+='*'+(i+0x1)+S(0x1ea)+h[i][S(0x1fd)]+'\x0a',teskd+=S(0x1e3)+h[i][S(0x205)]+'\x0a',teskd+=S(0x1f9)+h[i][S(0x1ec)]+'\x0a',teskd+='│\x20_📍Reason:\x20'+h[i][S(0x1ee)]+'_\x0a╰─────────────◆\x0a\x0a';}citel[S(0x1e1)](teskd),await Void[S(0x1df)](citel['chat'],[citel['quoted'][S(0x1fb)]],S(0x203));}}catch(Y){console[S(0x1e6)](Y);}
             
         }
     )
@@ -154,32 +154,61 @@ cmd({
 
     //---------------------------------------------------------------------------
 cmd({
-        pattern: "tagall",
-        desc: "Tags every person of group.",
-        category: "group",
-        filename: __filename,
-    },
-    async(Void, citel, text,{ isCreator }) => {
-        if (!citel.isGroup) return citel.reply(tlang().group);
-        const groupMetadata = citel.isGroup ? await Void.groupMetadata(citel.chat).catch((e) => {}) : "";
-        const participants = citel.isGroup ? await groupMetadata.participants : "";
-        const groupAdmins = await getAdmin(Void, citel)
-        const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
-        if (!isAdmins) return citel.reply(tlang().admin);
+    pattern: "منشن",
+    alias: ["تاك", "tag", "tagall", "تاج"],
+    filename: __filename,
+  },
+  async(Void, citel, text,{ isCreator }) => {
+    if (!citel.isGroup) return citel.reply(tlang().group);
+    const groupMetadata = citel.isGroup ? await Void.groupMetadata(citel.chat).catch((e) => {}) : "";
+    const participants = citel.isGroup ? await groupMetadata.participants : "";
+    const groupAdmins = await getAdmin(Void, citel)
+    const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
+    if (!isAdmins) return citel.reply(tlang().admin);
+  
+    const admins = []
+    const members = []
+    for (let mem of participants) {
+      if (groupAdmins.includes(mem.id)) {
+        admins.push(mem.id)
+      } else {
+        members.push(mem.id)
+      }
+    }
+  
+    let textt = `${text ? text : "السلام عليكم"}\n\n`
 
-        let textt = `
-══✪〘   *Tag All*   〙✪══
-
-➲ *Message :* ${text ? text : "blank"}\n\n
-➲ *Author:* ${citel.pushName} 🔖
-`
-        for (let mem of participants) {
-            textt += `📍 @${mem.id.split("@")[0]}\n`;
-        }
-        Void.sendMessage(citel.chat, {
-            text: textt,
-            mentions: participants.map((a) => a.id),
-        }, {
+    
+    const creator = groupMetadata?.owner || "";
+  
+    if (creator) {
+textt += `\n 👑 @${creator.split("@")[0]} 👑\n\n`;
+    }
+  
+  
+    if (admins.length > 0) {
+textt += "المشرفين 🥇:\n\n"
+      let count = 1;
+      for (let admin of admins) {
+        textt += `ـ ${count} ↭ @${admin.split("@")[0]}\n`;
+        count++;
+      }
+    }
+  
+    if (members.length > 0) {
+textt += "\nالأعضاء 🥈:\n\n"
+      let count = 1;
+      for (let member of members) {
+        textt += `ـ ${count} ❐ @${member.split("@")[0]}\n`;
+        count++;
+      }
+    }
+  
+    
+    Void.sendMessage(citel.chat, {
+      text: textt,
+      mentions: participants.map((a) => a.id),
+    }, {
             quoted: citel,
         });
     }
@@ -245,17 +274,16 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "rwarn",
-            desc: "Deletes all previously given warns of quoted user.",
+            pattern: "resetwarn",
+            desc: "Deletes all previously given warns to quoted user.",
             category: "group",
-            filename: __filename,
+           filename: __filename,
             use: '<quote|reply|number>',
         },
-        async(Void, citel, text,{isCreator}) => {
+        async(Void, citel, text) => {
             if (!isCreator) return citel.reply(tlang().owner)
-            if (!citel.quoted) return citel.reply('Quote a user master.')
             await warndb.deleteOne({ id: citel.quoted.sender.split('@')[0] + 'warn' });
-            return citel.reply('User is now free as a bird.\n.')
+            citel.reply('User is free as a bird.\nAll previously given warn has been deleted.')
         }
     )
     //---------------------------------------------------------------------------
@@ -287,7 +315,7 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "profile",
+            pattern: "بروفايل",
             desc: "Shows profile of user.",
             category: "group",
             filename: __filename,
@@ -298,55 +326,55 @@ cmd({
             let meh = citel.sender;
             const userq = await Levels.fetch(citel.sender, "RandomXP");
             const lvpoints = userq.level;
-            var role = "GOD✨";
+            var role = "ملك✨";
             if (lvpoints <= 2) {
-                var role = "🏳Citizen";
+                var role = "بيضه 🥚";
             } else if (lvpoints <= 4) {
-                var role = "👼Baby Wizard";
+                var role = "👼مولود";
             } else if (lvpoints <= 6) {
-                var role = "🧙‍♀️Wizard";
+                var role = "طفل 👶";
             } else if (lvpoints <= 8) {
-                var role = "🧙‍♂️Wizard Lord";
+                var role = "ناشئ👦";
             } else if (lvpoints <= 10) {
-                var role = "🧚🏻Baby Mage";
+                var role = "مراهق";
             } else if (lvpoints <= 12) {
-                var role = "🧜Mage";
+                var role = "مراهق -2";
             } else if (lvpoints <= 14) {
-                var role = "🧜‍♂️Master of Mage";
+                var role = "مراهق -3";
             } else if (lvpoints <= 16) {
-                var role = "🌬Child of Nobel";
+                var role = "🌬شباب";
             } else if (lvpoints <= 18) {
-                var role = "❄Nobel";
+                var role = "روعه ♥";
             } else if (lvpoints <= 20) {
-                var role = "⚡Speed of Elite";
+                var role = "⚡ملك السرعه";
             } else if (lvpoints <= 22) {
-                var role = "🎭Elite";
+                var role = "🎭مهرج";
             } else if (lvpoints <= 24) {
-                var role = "🥇Ace I";
+                var role = "متميز 🥇";
             } else if (lvpoints <= 26) {
-                var role = "🥈Ace II";
+                var role = "🥈متميز II";
             } else if (lvpoints <= 28) {
-                var role = "🥉Ace Master";
+                var role = "🥉متميز";
             } else if (lvpoints <= 30) {
-                var role = "🎖Ace Dominator";
+                var role = "🎖مسيطر";
             } else if (lvpoints <= 32) {
-                var role = "🏅Ace Elite";
+                var role = "🏅متميز النخبه";
             } else if (lvpoints <= 34) {
-                var role = "🏆Ace Supreme";
+                var role = "🏆الاعلى";
             } else if (lvpoints <= 36) {
-                var role = "💍Supreme I";
+                var role = "💍عالي I";
             } else if (lvpoints <= 38) {
-                var role = "💎Supreme Ii";
+                var role = "💎عالي Ii";
             } else if (lvpoints <= 40) {
-                var role = "🔮Supreme Master";
+                var role = "🔮الاعلى";
             } else if (lvpoints <= 42) {
-                var role = "🛡Legend III";
+                var role = "🛡اسطوره III";
             } else if (lvpoints <= 44) {
-                var role = "🏹Legend II";
+                var role = "🏹اسطوره II";
             } else if (lvpoints <= 46) {
-                var role = "⚔Legend";
+                var role = "⚔اسطوره";
             } else if (lvpoints <= 55) {
-                var role = "🐉Immortal";
+                var role = "🐉اسطوره الاعلى";
             }
             let ttms = `${userq.xp}` / 8;
             const timenow = moment(moment())
@@ -359,21 +387,37 @@ cmd({
                 pfp = await botpic();
             }
             const profile = `
-*Hii ${citel.pushName},*
-*Here is your profile information*
-*👤Username:* ${citel.pushName}
-*⚡Bio:* ${bioo}
-*🧩Role:* ${role}
-*🍁Level:* ${userq.level}
-*📥 Total Messages* ${ttms}
-*Powered by ${tlang().title}*
+*هلا ${citel.pushName},*
+*صفحــــة بروفـــايلك*
+*👤الأسم:* ${citel.pushName}
+*⚡البايو:* ${bioo}
+*🧩دورك:* ${role}
+*🍁المرحله:* ${userq.level}
+*📥 عدد الرسائل* ${ttms}
+*صنع بواسطه ${tlang().title}*
 `;
+            const buttonsd = [{
+                    buttonId: `${prefix}rank`,
+                    buttonText: {
+                        displayText: "رانك",
+                    },
+                    type: 1,
+                },
+                {
+                    buttonId: `${prefix}help`,
+                    buttonText: {
+                        displayText: "اوامر",
+                    },
+                    type: 1,
+                },
+            ];
             let buttonMessage = {
                 image: {
                     url: pfp,
                 },
                 caption: profile,
                 footer: tlang().footer,
+                buttons: buttonsd,
                 headerType: 4,
             };
             Void.sendMessage(citel.chat, buttonMessage, {
@@ -384,71 +428,75 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "rank",
+            pattern: "رانك",
+	    alias: ["مستوى", "المستوى", "مستواي", "رانكي"],
             desc: "Sends rank card of user.",
             category: "group",
             filename: __filename,
         },
         async(Void, citel, text) => {
+            var bio = await Void.fetchStatus(citel.sender);
+            var bioo = bio.status;
+            let meh = citel.sender;
             const userq = await Levels.fetch(citel.sender, "RandomXP");
             const lvpoints = userq.level;
-            var role = "GOD✨";
+            var role = "ملك✨";
             if (lvpoints <= 2) {
-                var role = "🏳Citizen";
+                var role = "بيضه 🥚";
             } else if (lvpoints <= 4) {
-                var role = "👼Baby Wizard";
+                var role = "👼مولود";
             } else if (lvpoints <= 6) {
-                var role = "🧙‍♀️Wizard";
+                var role = "طفل 👶";
             } else if (lvpoints <= 8) {
-                var role = "🧙‍♂️Wizard Lord";
+                var role = "ناشئ👦";
             } else if (lvpoints <= 10) {
-                var role = "🧚🏻Baby Mage";
+                var role = "مراهق";
             } else if (lvpoints <= 12) {
-                var role = "🧜Mage";
+                var role = "مراهق -2";
             } else if (lvpoints <= 14) {
-                var role = "🧜‍♂️Master of Mage";
+                var role = "مراهق -3";
             } else if (lvpoints <= 16) {
-                var role = "🌬Child of Nobel";
+                var role = "🌬شباب";
             } else if (lvpoints <= 18) {
-                var role = "❄Nobel";
+                var role = "روعه ♥";
             } else if (lvpoints <= 20) {
-                var role = "⚡Speed of Elite";
+                var role = "⚡ملك السرعه";
             } else if (lvpoints <= 22) {
-                var role = "🎭Elite";
+                var role = "🎭مهرج";
             } else if (lvpoints <= 24) {
-                var role = "🥇Ace I";
+                var role = "متميز 🥇";
             } else if (lvpoints <= 26) {
-                var role = "🥈Ace II";
+                var role = "🥈متميز II";
             } else if (lvpoints <= 28) {
-                var role = "🥉Ace Master";
+                var role = "🥉متميز";
             } else if (lvpoints <= 30) {
-                var role = "🎖Ace Dominator";
+                var role = "🎖مسيطر";
             } else if (lvpoints <= 32) {
-                var role = "🏅Ace Elite";
+                var role = "🏅متميز النخبه";
             } else if (lvpoints <= 34) {
-                var role = "🏆Ace Supreme";
+                var role = "🏆الاعلى";
             } else if (lvpoints <= 36) {
-                var role = "💍Supreme I";
+                var role = "💍عالي I";
             } else if (lvpoints <= 38) {
-                var role = "💎Supreme Ii";
+                var role = "💎عالي Ii";
             } else if (lvpoints <= 40) {
-                var role = "🔮Supreme Master";
+                var role = "🔮الاعلى";
             } else if (lvpoints <= 42) {
-                var role = "🛡Legend III";
+                var role = "🛡اسطوره III";
             } else if (lvpoints <= 44) {
-                var role = "🏹Legend II";
+                var role = "🏹اسطوره II";
             } else if (lvpoints <= 46) {
-                var role = "⚔Legend";
+                var role = "⚔اسطوره";
             } else if (lvpoints <= 55) {
-                var role = "🐉Immortal";
+                var role = "🐉اسطوره الاعلى";
             }
             let disc = citel.sender.substring(3, 7);
             let textr = '';
-            textr += `*Hii ${tlang().greet} ,🌟 ${citel.pushName}∆${disc}'s* Exp\n\n`;
+            textr += `*هلا ${citel.pushName}|∆*\n*⚡البايو:* ${bioo}`;
             let ttms = `${userq.xp}` / 8;
-            textr += `*🌟Role*: ${role}\n*🟢Exp*: ${userq.xp} / ${Levels.xpFor(
+            textr += `*🌟دورك*: ${role}\n*🟢يكسب*: ${userq.xp} / ${Levels.xpFor(
     userq.level + 1
-  )}\n*🏡Level*: ${userq.level}\n*Total Messages:*- ${ttms}`;
+  )}\n*🏡المستوى*: ${userq.level}\n*عدد الرسائل:*- ${ttms}`;
             try {
                 ppuser = await Void.profilePictureUrl(citel.sender, "image");
             } catch {
@@ -464,82 +512,82 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "leaderboard",
+            pattern: "المتصدرين",
             alias: ["deck"],
             desc: "To check leaderboard",
             category: "general",
             filename: __filename,
         },
         async(Void, citel) => {
-            const fetchlb = await Levels.fetchLeaderboard("RandomXP", 5);
+            const fetchlb = await Levels.fetchLeaderboard("RandomXP", 15);
             let leadtext = `
 *-------------------------------*
-*----● LeaderBoard ● -----*
+*----● قائمة المتصدرين ● -----*
 *-------------------------------*
 \n\n`
             for (let i = 0; i < fetchlb.length; i++) {
                 const lvpoints = fetchlb[i].level
-                var role = "GOD✨";
-                if (lvpoints <= 2) {
-                    var role = "🏳Citizen";
-                } else if (lvpoints <= 4) {
-                    var role = "👼Baby Wizard";
-                } else if (lvpoints <= 6) {
-                    var role = "🧙‍♀️Wizard";
-                } else if (lvpoints <= 8) {
-                    var role = "🧙‍♂️Wizard Lord";
-                } else if (lvpoints <= 10) {
-                    var role = "🧚🏻Baby Mage";
-                } else if (lvpoints <= 12) {
-                    var role = "🧜Mage";
-                } else if (lvpoints <= 14) {
-                    var role = "🧜‍♂️Master of Mage";
-                } else if (lvpoints <= 16) {
-                    var role = "🌬Child of Nobel";
-                } else if (lvpoints <= 18) {
-                    var role = "❄Nobel";
-                } else if (lvpoints <= 20) {
-                    var role = "⚡Speed of Elite";
-                } else if (lvpoints <= 22) {
-                    var role = "🎭Elite";
-                } else if (lvpoints <= 24) {
-                    var role = "🥇Ace I";
-                } else if (lvpoints <= 26) {
-                    var role = "🥈Ace II";
-                } else if (lvpoints <= 28) {
-                    var role = "🥉Ace Master";
-                } else if (lvpoints <= 30) {
-                    var role = "🎖Ace Dominator";
-                } else if (lvpoints <= 32) {
-                    var role = "🏅Ace Elite";
-                } else if (lvpoints <= 34) {
-                    var role = "🏆Ace Supreme";
-                } else if (lvpoints <= 36) {
-                    var role = "💍Supreme I";
-                } else if (lvpoints <= 38) {
-                    var role = "💎Supreme Ii";
-                } else if (lvpoints <= 40) {
-                    var role = "🔮Supreme Master";
-                } else if (lvpoints <= 42) {
-                    var role = "🛡Legend III";
-                } else if (lvpoints <= 44) {
-                    var role = "🏹Legend II";
-                } else if (lvpoints <= 46) {
-                    var role = "⚔Legend";
-                } else if (lvpoints <= 55) {
-                    var role = "🐉Immortal";
+                var role = "ملك✨";
+            if (lvpoints <= 2) {
+                var role = "بيضه 🥚";
+            } else if (lvpoints <= 4) {
+                var role = "👼مولود";
+            } else if (lvpoints <= 6) {
+                var role = "طفل 👶";
+            } else if (lvpoints <= 8) {
+                var role = "ناشئ👦";
+            } else if (lvpoints <= 10) {
+                var role = "مراهق";
+            } else if (lvpoints <= 12) {
+                var role = "مراهق -2";
+            } else if (lvpoints <= 14) {
+                var role = "مراهق -3";
+            } else if (lvpoints <= 16) {
+                var role = "🌬شباب";
+            } else if (lvpoints <= 18) {
+                var role = "روعه ♥";
+            } else if (lvpoints <= 20) {
+                var role = "⚡ملك السرعه";
+            } else if (lvpoints <= 22) {
+                var role = "🎭مهرج";
+            } else if (lvpoints <= 24) {
+                var role = "متميز 🥇";
+            } else if (lvpoints <= 26) {
+                var role = "🥈متميز II";
+            } else if (lvpoints <= 28) {
+                var role = "🥉متميز";
+            } else if (lvpoints <= 30) {
+                var role = "🎖مسيطر";
+            } else if (lvpoints <= 32) {
+                var role = "🏅متميز النخبه";
+            } else if (lvpoints <= 34) {
+                var role = "🏆الاعلى";
+            } else if (lvpoints <= 36) {
+                var role = "💍عالي I";
+            } else if (lvpoints <= 38) {
+                var role = "💎عالي Ii";
+            } else if (lvpoints <= 40) {
+                var role = "🔮الاعلى";
+            } else if (lvpoints <= 42) {
+                var role = "🛡اسطوره III";
+            } else if (lvpoints <= 44) {
+                var role = "🏹اسطوره II";
+            } else if (lvpoints <= 46) {
+                var role = "⚔اسطوره";
+            } else if (lvpoints <= 55) {
+                var role = "🐉اسطوره الاعلى";
                 }
                 let data = await sck1.findOne({ id: fetchlb[i].userID })
                 let namew = fetchlb[i].userID
                 let ttms = fetchlb[i].xp / 8
-                leadtext += `*${i + 1}●Name*: ${data.name}\n*●Level*: ${fetchlb[i].level}\n*●Points*: ${fetchlb[i].xp}\n*●Role*: ${role}\n*●Total messages*: ${ttms}\n\n`;
+                leadtext += `*${i + 1}●الأسم*: ${data.name}\n*●المستوى*: ${fetchlb[i].level}\n*●نقاطه*: ${fetchlb[i].xp}\n*●دوره*: ${role}\n*●عدد رسائله*: ${ttms}\n\n`;
             }
             return citel.reply(leadtext)
         }
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "promote",
+            pattern: "ترقيه",
             desc: "Provides admin role to replied/quoted user",
             category: "group",
             filename: __filename,
@@ -566,7 +614,7 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "kick",
+            pattern: "طرد",
             desc: "Kicks replied/quoted user from group.",
             category: "group",
             filename: __filename,
@@ -604,23 +652,15 @@ cmd({
             if (!/image/.test(mime)) return citel.reply(`Reply to Photo With Caption *text*`)
             mee = await Void.downloadAndSaveMediaMessage(citel.quoted)
             mem = await TelegraPh(mee)
-            meme = await getBuffer(`https://api.memegen.link/images/custom/-/${text}.png?background=${mem}`)
-            let buttonMessage = {
-                image: meme,
-                caption: "Here we go",
-                footer: tlang().footer,
-                headerType: 4,
-            };
-            Void.sendMessage(citel.chat, buttonMessage, {
-                quoted: citel,
-            });
-            await fs.unlinkSync(mee)
+            meme = `https://api.memegen.link/images/custom/-/${text}.png?background=${mem}`
+            memek = await Void.sendImageAsSticker(citel.chat, meme, citel, { packname: citel.pushName, author: 'Secktor' })
+            await fs.unlinkSync(memek)
 
         }
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "group",
+            pattern: "قروب",
             desc: "mute and unmute group.",
             category: "group",
             filename: __filename,
@@ -643,14 +683,28 @@ cmd({
                     .then((res) => reply(`Group Chat Unmuted :)`))
                     .catch((err) => console.log(err));
             } else {
-
-                return citel.reply(`Group Mode:\n${prefix}group open- to open\n${prefix}group close- to close`);
+                let buttons = [{
+                        buttonId: `${prefix}group open`,
+                        buttonText: {
+                            displayText: "📍فتح",
+                        },
+                        type: 1,
+                    },
+                    {
+                        buttonId: `${prefix}group close`,
+                        buttonText: {
+                            displayText: "📍غلق",
+                        },
+                        type: 1,
+                    },
+                ];
+                await Void.sendButtonText(citel.chat, buttons, `وضع القروب`, Void.user.name, citel);
             }
         }
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "grouppic",
+            pattern: "خالقروب",
             desc: "Sets a profile pic in Group..",
             category: "group",
             filename: __filename,
@@ -681,7 +735,7 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "hidetag",
+            pattern: "مخفي",
             alias: ["htag"],
             desc: "Tags everyperson of group without mentioning their numbers",
             category: "group",
@@ -707,7 +761,7 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "add",
+            pattern: "اضافه",
             desc: "Add that person in group",
             fromMe: true,
             category: "group",
@@ -731,7 +785,7 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "getjids",
+            pattern: "القروبات",
             desc: "Sends chat id of every groups.",
             category: "group",
             filename: __filename,
@@ -744,13 +798,13 @@ cmd({
                 .map((entry) => entry[1]);
             let anu = groups.map((v) => v.id);
             let jackhuh = `All groups jid\n\n`
-            citel.reply(`Fetching jid from ${anu.length} Groups`)
+            citel.reply(`البوت في ${anu.length} قروب`)
             for (let i of anu) {
                 let metadata = await Void.groupMetadata(i);
                 await sleep(500)
-                jackhuh += `*Subject:-* ${metadata.subject}\n`
-                jackhuh += `*Member :* ${metadata.participants.length}\n`
-                jackhuh += `*Jid:-* ${i}\n\n`
+                jackhuh += `*الأسم:-* ${metadata.subject}\n`
+                jackhuh += `*الاعضاء :* ${metadata.participants.length}\n`
+                jackhuh += `*ايبي:-* ${i}\n\n`
 
             }
             citel.reply(jackhuh)
@@ -759,7 +813,7 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-        pattern: "demote",
+        pattern: "تنزيل",
         desc: "Demotes replied/quoted user from group",
         category: "group",
         filename: __filename,
@@ -787,7 +841,7 @@ cmd({
 
 //---------------------------------------------------------------------------
 cmd({
-            pattern: "del",
+            pattern: "حذف",
             alias: ["delete"],
             desc: "Deletes message of any user",
             category: "group",
@@ -842,9 +896,9 @@ cmd({
             teskd += `*There are total ${h.length}  warnings.*\n`
             for (let i = 0; i < h.length; i++) {
                 teskd += `*${i+1}*\n╭─────────────◆\n│ *🍁In Group:-* ${h[i].group}\n`
-                teskd += `│ *🔰Time:-* ${h[i].date}\n`
-                teskd += `│ *⚠️Warned by:-* ${h[i].warnedby}\n`
-                teskd += `│ _📍Reason: ${h[i].reason}_\n╰─────────────◆\n\n`
+                teskd += `│ *🔰الوقت:-* ${h[i].date}\n`
+                teskd += `│ *⚠️صاحب الانذار:-* ${h[i].warnedby}\n`
+                teskd += `│ _📍ريسون: ${h[i].reason}_\n╰─────────────◆\n\n`
             }
             citel.reply(teskd)
         }
@@ -852,7 +906,7 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-            pattern: "block",
+            pattern: "بلوك",
             desc: "blocks that person",
             fromMe: true,
             category: "owner",
@@ -871,7 +925,7 @@ cmd({
     )
     //---------------------------------------------------------------------------
 cmd({
-        pattern: "broadcast",
+        pattern: "brodcast",
         alias: ["bc"],
         desc: "Bot makes a broadcast in all groups",
         fromMe: true,
@@ -920,7 +974,6 @@ cmd({
 )
 
 //---------------------------------------------------------------------------
-if(Config.WORKTYPE!=='private'){
 cmd({ on: "text" }, async(Void, citel) => {
     const randomXp = 8;
     let usrname = citel.pushName
@@ -928,55 +981,55 @@ cmd({ on: "text" }, async(Void, citel) => {
     if (hasLeveledUp) {
         const sck1 = await Levels.fetch(citel.sender, "RandomXP");
         const lvpoints = sck1.level;
-        var role = "GOD";
-        if (lvpoints <= 2) {
-            var role = "🏳Citizen";
-        } else if (lvpoints <= 4) {
-            var role = "👼Baby Wizard";
-        } else if (lvpoints <= 6) {
-            var role = "🧙‍♀️Wizard";
-        } else if (lvpoints <= 8) {
-            var role = "🧙‍♂️Wizard Lord";
-        } else if (lvpoints <= 10) {
-            var role = "🧚🏻Baby Mage";
-        } else if (lvpoints <= 12) {
-            var role = "🧜Mage";
-        } else if (lvpoints <= 14) {
-            var role = "🧜‍♂️Master of Mage";
-        } else if (lvpoints <= 16) {
-            var role = "🌬Child of Nobel";
-        } else if (lvpoints <= 18) {
-            var role = "❄Nobel";
-        } else if (lvpoints <= 20) {
-            var role = "⚡Speed of Elite";
-        } else if (lvpoints <= 22) {
-            var role = "🎭Elite";
-        } else if (lvpoints <= 24) {
-            var role = "🥇Ace I";
-        } else if (lvpoints <= 26) {
-            var role = "🥈Ace II";
-        } else if (lvpoints <= 28) {
-            var role = "🥉Ace Master";
-        } else if (lvpoints <= 30) {
-            var role = "🎖Ace Dominator";
-        } else if (lvpoints <= 32) {
-            var role = "🏅Ace Elite";
-        } else if (lvpoints <= 34) {
-            var role = "🏆Ace Supreme";
-        } else if (lvpoints <= 36) {
-            var role = "💍Supreme I";
-        } else if (lvpoints <= 38) {
-            var role = "💎Supreme Ii";
-        } else if (lvpoints <= 40) {
-            var role = "🔮Supreme Master";
-        } else if (lvpoints <= 42) {
-            var role = "🛡Legend III";
-        } else if (lvpoints <= 44) {
-            var role = "🏹Legend II";
-        } else if (lvpoints <= 46) {
-            var role = "⚔Legend";
-        } else if (lvpoints <= 55) {
-            var role = "🐉Immortal";
+            var role = "ملك✨";
+            if (lvpoints <= 2) {
+                var role = "بيضه 🥚";
+            } else if (lvpoints <= 4) {
+                var role = "👼مولود";
+            } else if (lvpoints <= 6) {
+                var role = "طفل 👶";
+            } else if (lvpoints <= 8) {
+                var role = "ناشئ👦";
+            } else if (lvpoints <= 10) {
+                var role = "مراهق";
+            } else if (lvpoints <= 12) {
+                var role = "مراهق -2";
+            } else if (lvpoints <= 14) {
+                var role = "مراهق -3";
+            } else if (lvpoints <= 16) {
+                var role = "🌬شباب";
+            } else if (lvpoints <= 18) {
+                var role = "روعه ♥";
+            } else if (lvpoints <= 20) {
+                var role = "⚡ملك السرعه";
+            } else if (lvpoints <= 22) {
+                var role = "🎭مهرج";
+            } else if (lvpoints <= 24) {
+                var role = "متميز 🥇";
+            } else if (lvpoints <= 26) {
+                var role = "🥈متميز II";
+            } else if (lvpoints <= 28) {
+                var role = "🥉متميز";
+            } else if (lvpoints <= 30) {
+                var role = "🎖مسيطر";
+            } else if (lvpoints <= 32) {
+                var role = "🏅متميز النخبه";
+            } else if (lvpoints <= 34) {
+                var role = "🏆الاعلى";
+            } else if (lvpoints <= 36) {
+                var role = "💍عالي I";
+            } else if (lvpoints <= 38) {
+                var role = "💎عالي Ii";
+            } else if (lvpoints <= 40) {
+                var role = "🔮الاعلى";
+            } else if (lvpoints <= 42) {
+                var role = "🛡اسطوره III";
+            } else if (lvpoints <= 44) {
+                var role = "🏹اسطوره II";
+            } else if (lvpoints <= 46) {
+                var role = "⚔اسطوره";
+            } else if (lvpoints <= 55) {
+                var role = "🐉اسطوره الاعلى";
         } else {
             var role = "Kiddo";
         }
@@ -987,13 +1040,13 @@ cmd({ on: "text" }, async(Void, citel) => {
                 },
                 caption: `
 ╔════◇
-║ *Wow,Someone just*
-║ *leveled Up huh⭐*
-║ *👤Name*: ${citel.pushName}
-║ *🎐Level*: ${sck1.level}🍭
-║ *🛑Exp*: ${sck1.xp} / ${Levels.xpFor(sck1.level + 1)}
-║ *📍Role*: *${role}*
-║ *Enjoy🥳*
+║ *ارتفاع جديد في مستواك*
+║ *ارتفاع حسبتك*
+║ *👤الأسم*: ${citel.pushName}
+║ *🎐المستوى*: ${sck1.level}🐥
+║ *🛑يكسب*: ${sck1.xp} / ${Levels.xpFor(sck1.level + 1)}
+║ *دورك*: *${role}*
+║ *استمتع*
 ╚════════════╝
 `,
             }, {
@@ -1003,4 +1056,3 @@ cmd({ on: "text" }, async(Void, citel) => {
     }
 
 })
-}
